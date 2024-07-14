@@ -1,6 +1,6 @@
-import { Button, Col, Form, Input, notification, Radio, Row } from "antd";
+import { Col, Form, Input, notification, Radio, Row } from "antd";
 import axios from "axios";
-import { Dispatch, SetStateAction } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 const validateMessages = {
   required: "${label} is required!",
   types: {

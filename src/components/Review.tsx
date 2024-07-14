@@ -1,6 +1,10 @@
 // import StarIcon from "./star";
 
-function QuoteIcon(props) {
+export type PropsType = {
+  className: string;
+};
+
+function QuoteIcon(props: PropsType) {
   return (
     <svg
       {...props}
@@ -20,7 +24,7 @@ function QuoteIcon(props) {
   );
 }
 
-function StarIcon(props) {
+function StarIcon(props: PropsType) {
   return (
     <svg
       {...props}
@@ -50,19 +54,19 @@ export default function Review(props: PropType) {
     <>
       <div className="mt-8 w-full md:mt-0">
         <div className="flex items-start space-x-4">
-          <QuoteIcon className="min-w-8 md:min-h-16 md:min-w-16 text-gray-400" />
+          <QuoteIcon className="min-w-8 text-gray-400 md:min-h-16 md:min-w-16" />
           <div>
             <p className="text-lg md:text-2xl">{text}</p>
             <div className="flex items-center">
               <div className="flex h-full space-x-1 text-yellow-400">
-                <StarIcon className="h-4 w-4 md:h-10 md:w-10 fill-yellow-400" />
-                <StarIcon className="h-4 w-4 md:h-10 md:w-10 fill-yellow-400" />
-                <StarIcon className="h-4 w-4 md:h-10 md:w-10 fill-yellow-400" />
-                <StarIcon className="h-4 w-4 md:h-10 md:w-10 fill-yellow-400" />
-                <StarIcon className="h-4 w-4 md:h-10 md:w-10 fill-yellow-400" />
+                <StarIcon className="h-4 w-4 fill-yellow-400 md:h-10 md:w-10" />
+                <StarIcon className="h-4 w-4 fill-yellow-400 md:h-10 md:w-10" />
+                <StarIcon className="h-4 w-4 fill-yellow-400 md:h-10 md:w-10" />
+                <StarIcon className="h-4 w-4 fill-yellow-400 md:h-10 md:w-10" />
+                <StarIcon className="h-4 w-4 fill-yellow-400 md:h-10 md:w-10" />
               </div>
               <div className="ml-6 flex items-center">
-                <div className="font-bold text-lg">{name}</div>
+                <div className="text-lg font-bold">{name}</div>
               </div>
             </div>
           </div>

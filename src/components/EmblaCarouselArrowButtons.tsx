@@ -1,12 +1,12 @@
 "use client";
 
 import React, {
-  PropsWithChildren,
+  type PropsWithChildren,
   useCallback,
   useEffect,
   useState,
 } from "react";
-import { EmblaCarouselType } from "embla-carousel";
+import { type EmblaCarouselType } from "embla-carousel";
 
 type UsePrevNextButtonsType = {
   prevBtnDisabled: boolean;

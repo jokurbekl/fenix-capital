@@ -11,7 +11,6 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "./ui/carousel";
-import { Car } from "lucide-react";
 
 export function CarouselDApiDemo() {
   const [api, setApi] = React.useState<CarouselApi>();

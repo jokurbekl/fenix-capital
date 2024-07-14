@@ -1,4 +1,6 @@
-const StarIcon = (props: any) => {
+import { type PropsType } from "./Review";
+
+const StarIcon = (props: PropsType) => {
   return (
     <svg
       {...props}

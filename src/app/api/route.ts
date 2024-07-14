@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import { GoogleSpreadsheet, GoogleSpreadsheetRow, GoogleSpreadsheetWorksheet } from 'google-spreadsheet';
+import { GoogleSpreadsheet, type GoogleSpreadsheetWorksheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
 
 type FormRequest = {
@@ -22,11 +22,12 @@ const serviceAccountAuth = new JWT({
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 const doc = new GoogleSpreadsheet('1n81rZOaIsfCYWZcvur52K54_zign7Vxu2_EKXLQWbuY', serviceAccountAuth);
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 let sheet: GoogleSpreadsheetWorksheet;
 
 void (async () => {
     await doc.loadInfo();
-    if(!doc.sheetsByIndex[0]) throw new Error("No sheets found");
+    if (!doc.sheetsByIndex[0]) throw new Error("No sheets found");
     sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
     // await setHeaderRow(sheet);
     // const rows = await getRows(sheet);
