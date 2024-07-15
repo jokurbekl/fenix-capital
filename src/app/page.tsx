@@ -2,23 +2,29 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EmblaCarousel from "~/components/EmblaCarousel";
 import { reviews } from "~/components/reviewsData";
 import { Modal } from "antd";
 import ApplyForm from "../components/ApplyForm";
 import PhotoCarousel from "~/components/ProfitCarousel";
+import * as fbq from "../lib/fpixel";
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
     setIsModalOpen(true);
+    fbq.applyButton();
   };
 
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+  useEffect(() => {
+    fbq.pageview();
+  }, []);
 
   return (
     <>

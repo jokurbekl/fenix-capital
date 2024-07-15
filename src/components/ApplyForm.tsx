@@ -1,6 +1,7 @@
 import { Col, Form, Input, notification, Radio, Row } from "antd";
 import axios from "axios";
 import { type Dispatch, type SetStateAction } from "react";
+import * as fbq from "../lib/fpixel";
 const validateMessages = {
   required: "${label} is required!",
   types: {
@@ -53,6 +54,7 @@ const ApplyForm = ({
         style={{ maxWidth: 600 }}
         validateMessages={validateMessages}
         onFinish={async (values) => {
+          fbq.submitButton();
           try {
             // console.log(response);
 
