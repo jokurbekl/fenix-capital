@@ -910,8 +910,8 @@ export default function HomePage() {
                           <div className="">
                             <ul className="elementor-icon-list-items text-2xl">
                               {[
-                                `With at least $25k in capital looking for a
-                                      high-impact, passive investment.`,
+                                // `With at least $25k in capital looking for a
+                                //       high-impact, passive investment.`,
                                 `Interested in leveraging a sophisticated AI
                                   Algo to enhance their investment returns.`,
                                 `   Tailored for investors aiming for steady,
@@ -985,8 +985,8 @@ export default function HomePage() {
                           <div className="elementor-widget-container">
                             <ul className="elementor-icon-list-items">
                               {[
-                                `    Individuals with less than $25k in liquid
-                                  assets.`,
+                                // `    Individuals with less than $25k in liquid
+                                //   assets.`,
                                 `Who prefer actively managing their trades and investments on a day-to-day basis.`,
                                 `Investors seeking extremely high-risk, high-reward investment opportunities beyond the 3-10% monthly return range.`,
                                 `Looking for quick, short-term gains, as this program focuses on steady, long-term growth.`,
@@ -1337,7 +1337,7 @@ export default function HomePage() {
                   </p>
                   <p>IMPORTANT: Earnings and Legal Disclaimers</p>
                   <p>
-                    *Any statements regarding earnings and income made by FN
+                    *Any statements regarding earnings and income made by FiNex
                     Capital, in conjunction with their
                     advertisers/sponsors/members/owners, are presented as
                     aspirational and illustrative of potential earnings. Success
@@ -1360,14 +1360,14 @@ export default function HomePage() {
                     For a comprehensive disclaimer of liability and other
                     limitations, kindly refer to our Terms &amp; Conditions.
                   </p>
-                  <p>
+                  {/* <p>
                     For inquiries regarding FiNex Capital Programs or to seek
                     clarification about their suitability for specific needs,
                     users are encouraged to contact us via email at
                     info@fncapital.io. We appreciate the opportunity to engage
                     in discussions about objectives and how the FiNex Capital
                     partnership program may contribute to users’ success.
-                  </p>
+                  </p> */}
                 </div>
 
                 {/* <div

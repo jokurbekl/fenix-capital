@@ -45,9 +45,11 @@ const ApplyForm = ({
         </div>
       </div>
       <Form
+        autoComplete="on"
         form={form}
         layout="vertical"
         className="w-full "
+        method="POST"
         // labelCol={{ span: 7 }}
         // wrapperCol={{ span: 14 }}
         // layout="horizontal"
@@ -72,23 +74,41 @@ const ApplyForm = ({
           label="Name"
           rules={[{ required: true }]}
         >
-          <Input className="max-h-10 px-2" placeholder="Full Name" />
+          <Input
+            className="max-h-10 px-2"
+            placeholder="Full Name"
+            aria-label="name"
+            autoComplete="true"
+            name="name"
+          />
         </Form.Item>
         <Form.Item
           name={["user", "email"]}
           label="Email"
           rules={[{ type: "email", required: true }]}
         >
-          <Input className="max-h-10 px-2" placeholder="Email Address" />
+          <Input
+            className="max-h-10 px-2"
+            placeholder="Email Address"
+            aria-label="email"
+            autoComplete="true"
+            name="email"
+          />
         </Form.Item>
         <Form.Item
           name={["user", "phone"]}
           label="Phone number"
           rules={[{ required: true }]}
         >
-          <Input className="max-h-10 px-2" placeholder="+1 (202) 555-0125" />
+          <Input
+            className="max-h-10 px-2"
+            placeholder="+1 (202) 555-0125"
+            aria-label="phone"
+            autoComplete="true"
+            name="phone"
+          />
         </Form.Item>
-        <div
+        {/* <div
           className="gfield_label gform-field-label border-b-0 text-center text-xl text-neutral-700
         "
         >
@@ -104,8 +124,8 @@ const ApplyForm = ({
           id="gfield_description_24_13"
         >
           (In a perfect world)
-        </div>
-        <Form.Item
+        </div> */}
+        {/* <Form.Item
           name="range"
           rules={[{ required: true }]}
           className="mx-auto "
@@ -140,15 +160,9 @@ const ApplyForm = ({
                 <Radio value="1000"> $1M+ </Radio>
               </Col>
             </Row>
-            {/* <Radio value="10"> Less than $10K </Radio>
-            <Radio value="1025"> $10K to $25K </Radio>
-            <Radio value="2550">$25K to $50K </Radio>
-            <Radio value="50100"> $50K to $100K </Radio>
-            <Radio value="100500">$100K to $500K </Radio>
-            <Radio value="5001000"> $500K to $1M </Radio>
-            <Radio value="1000"> $1M+ </Radio> */}
+         
           </Radio.Group>
-        </Form.Item>
+        </Form.Item> */}
         <Form.Item>
           <div className="elementor-widget-container">
             <div className="elementor-button-wrapper mx-auto w-fit">

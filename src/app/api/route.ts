@@ -63,6 +63,9 @@ export async function POST(request: Request) {
         case "1000":
             range = "$1M+"
             break;
+        default:
+            range = "Unknown"
+            break;
 
     }
 
