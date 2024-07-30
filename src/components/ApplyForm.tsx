@@ -2,6 +2,7 @@ import { Col, Form, Input, notification, Radio, Row } from "antd";
 import axios from "axios";
 import { type Dispatch, type SetStateAction } from "react";
 import * as fbq from "../lib/fpixel";
+import PhoneInput from "antd-phone-input";
 const validateMessages = {
   required: "${label} is required!",
   types: {
@@ -11,6 +12,13 @@ const validateMessages = {
   //   number: {
   //     range: "${label} must be between ${min} and ${max}",
   //   },
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const validator = (_: any, { valid }: { valid: (x: any) => boolean }) => {
+  if (valid(true)) return Promise.resolve(); // strict validation
+  // if (valid()) return Promise.resolve(); // non-strict validation
+  return Promise.reject("Invalid phone number");
 };
 
 const ApplyForm = ({
@@ -95,7 +103,7 @@ const ApplyForm = ({
             name="email"
           />
         </Form.Item>
-        <Form.Item
+        {/* <Form.Item
           name={["user", "phone"]}
           label="Phone number"
           rules={[{ required: true }]}
@@ -107,6 +115,13 @@ const ApplyForm = ({
             autoComplete="true"
             name="phone"
           />
+        </Form.Item> */}
+        <Form.Item
+          name={["user", "phone"]}
+          label="Phone number"
+          rules={[{ validator, required: true }]}
+        >
+          <PhoneInput enableSearch enableArrow />
         </Form.Item>
         {/* <div
           className="gfield_label gform-field-label border-b-0 text-center text-xl text-neutral-700

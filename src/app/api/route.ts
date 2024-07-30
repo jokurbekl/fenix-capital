@@ -1,12 +1,19 @@
 import 'dotenv/config'
 import { GoogleSpreadsheet, type GoogleSpreadsheetWorksheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
+import axios from 'axios';
 
 type FormRequest = {
     "user": {
         "name": string
         "email": string,
-        "phone": string
+        "phone": {
+            countryCode: string | number,
+            areaCode: string | number,
+            phoneNumber: string | number,
+            // isoCode: "us",
+            // valid: function valid(strict)
+        }
     },
     "range": string
 }
@@ -34,6 +41,20 @@ void (async () => {
     // parseRowsDataToCache(users, rows);
 })()
 
+
+const getUniqueID = async ({ email, name, phone }: { email: string, name: string, phone: string }) => {
+    const payload = {
+        email,
+        firstName: name.split(" ")[0],
+        lastName: name.split(" ")[1] ?? "",
+        phone
+    }
+    console.log(payload)
+
+    const request = await axios.post<string>(`${process.env.UNIQUE_ID_API}`, payload)
+    return request.data;
+
+}
 
 export async function POST(request: Request) {
     const res = await request.json() as FormRequest;
@@ -72,12 +93,19 @@ export async function POST(request: Request) {
     await doc.loadInfo();
     const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
     if (!sheet) throw new Error("Sheet not found")
+
+    const phoneNumber = `${res.user.phone.countryCode}${res.user.phone.areaCode}${res.user.phone.phoneNumber}`
     await sheet.addRow({
         "Name": res.user.name,
         "Email": res.user.email,
-        "Phone": res.user.phone,
+        "Phone": phoneNumber,
         "Range": range,
         "Created At": new Date().toISOString(),
+        "Unique ID": await getUniqueID({
+            email: res.user.email,
+            name: res.user.name,
+            phone: phoneNumber
+        })
     });
 
     console.log(range)
